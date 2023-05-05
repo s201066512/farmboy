@@ -1,23 +1,3 @@
-"""
-Run this part every 24 hours 
-I also need to check the value of latestShift and compare it to the current day
-If the day of my shift is the current day, then send an email 
-
-Run this part every hour
-variable hasBeenChanged
-Determine a way to tell if shift has been updated or cancelled
-    I'll need to check all my shifts after the current day
-    This means clicking on schedule and then figuring out which shift to 
-
-Check if it says it has been updated or cancelled
-    Set hasBeenChanged to true
-If hasBeenChanged is true then send an email
-    Set hasBeenChanged to false
-
-Figure out how to send it at the right times
-Do I need a loop and just use sleep() or wait()?
-
-"""
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
@@ -81,12 +61,5 @@ while (True):
     except IndexError:  
         print("IndexError (ignore)")
 
-    """
-    This will give me index out of bounds error if the old_shifts includes a week and shifts doesn't include that week
-    I don't think that actually matters though, since after it runs again the weeks will be the same
-    And then it'll be another week before that happens again. But during the week it'll work as expected
-    So there might just be a slight delay
-    Still need to run it constantly and figure out how I want to do that
-    """
     driver.close()
     time.sleep(43200)
